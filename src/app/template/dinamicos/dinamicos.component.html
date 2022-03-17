@@ -12,7 +12,7 @@
             <input type="text"
                    class="form-control"
                    placeholder="Nombre de la persona"
-                   ngModel
+                   [ngModel]="persona.nombre"
                    name="nombre"
                    required>
                    <span class="form-text text-danger"
@@ -43,9 +43,12 @@
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favoritos</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control mb-1">
-            <input type="text" class="form-control mb-1">
-            <input type="text" class="form-control mb-1">
+            <input  *ngFor="let juego of persona.favoritos; let i = index"
+                    [(ngModel)]="juego.nombre"
+                    name="favorito_{{ i }}"
+                    type="text" 
+                    class="form-control mb-1"
+                    required>
         </div>
     </div>
 
@@ -72,6 +75,9 @@
         <pre>{{ miFormulario.touched | json }}</pre>
 
         <span>Value</span>
-        <pre>{{ miFormulario.value | json }}</pre>        
+        <pre>{{ miFormulario.value | json }}</pre> 
+        
+        <span>Persona</span>
+        <pre>{{ persona | json }}</pre>
     </div>
 </div>
