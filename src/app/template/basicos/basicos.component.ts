@@ -8,7 +8,12 @@ import { NgForm } from '@angular/forms';
   ]
 })
 export class BasicosComponent implements OnInit {
-  @ViewChild('miFormulario') miFormulario!: NgForm;  
+  @ViewChild('miFormulario') miFormulario!: NgForm;
+  valorIni = {
+    producto: 'Memoria RAM 8GB',
+    precio: 10,
+    existencias: 10
+  }  
 
   constructor() { }
 
@@ -17,7 +22,14 @@ export class BasicosComponent implements OnInit {
 
   // guardar(miFormulario: NgForm) 
   guardar() {
-    console.log(this.miFormulario);
+    console.log('Posteo correcto');
+
+    /* Limpia el formulario después del submit */
+    this.miFormulario.resetForm({
+      producto: 'Algo',
+      precio: 0,
+      existencias: 0
+    });
   }
 
   nombreValido(): boolean {
