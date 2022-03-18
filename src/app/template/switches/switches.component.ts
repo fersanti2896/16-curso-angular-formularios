@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,11 +7,13 @@ import { NgForm } from '@angular/forms';
   styles: [
   ]
 })
-export class SwitchesComponent implements OnInit {
+export class SwitchesComponent {
   @ViewChild('miFormulario') miFormulario!: NgForm;
-  constructor() { }
 
-  ngOnInit(): void {
+  persona = {
+    genero: 'F',
+    notificaciones: true
   }
 
+  terminos: boolean = false;
 }
