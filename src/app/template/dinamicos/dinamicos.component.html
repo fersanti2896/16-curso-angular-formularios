@@ -43,12 +43,21 @@
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favoritos</label>
         <div class="col-sm-9">
-            <input  *ngFor="let juego of persona.favoritos; let i = index"
-                    [(ngModel)]="juego.nombre"
-                    name="favorito_{{ i }}"
-                    type="text" 
-                    class="form-control mb-1"
-                    required>
+            <div class="input-group mb-1"
+                 *ngFor="let juego of persona.favoritos; let i = index">
+                <input  [(ngModel)]="juego.nombre"
+                        name="favorito_{{ i }}"
+                        type="text" 
+                        class="form-control"
+                        required>
+                
+                <button class="btn btn-outline-danger" 
+                        type="button"
+                        (click)="eliminar(i)">
+                    <i class="bi bi-trash3"></i>
+                    Borrar
+                </button>
+            </div>
         </div>
     </div>
 

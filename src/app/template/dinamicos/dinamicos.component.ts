@@ -36,4 +36,8 @@ export class DinamicosComponent {
     return this.miFormulario?.controls.nombre?.invalid 
           && this.miFormulario?.controls.nombre?.touched
   }
+
+  eliminar(index: number) {
+    this.persona.favoritos.splice(index, 1);
+  }
 }
